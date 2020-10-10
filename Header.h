@@ -1,20 +1,20 @@
 #pragma once
-#include <iostream>// библиотека ввода-вывода
-#include <fstream>// библиотека для работы с файлами
-#include <string>// библиотека для работы со строками
-#include <time.h>// библиотека для работы со временем
-#include <vector>// библиотека для создания вектора
-#include <cstdlib>// библиотека для работы с функцией srand
+#include <iostream>// Р±РёР±Р»РёРѕС‚РµРєР° РІРІРѕРґР°-РІС‹РІРѕРґР°
+#include <fstream>// Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»Р°РјРё
+#include <string>// Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃРѕ СЃС‚СЂРѕРєР°РјРё
+#include <time.h>// Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃРѕ РІСЂРµРјРµРЅРµРј
+#include <vector>// Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РІРµРєС‚РѕСЂР°
+#include <cstdlib>// Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„СѓРЅРєС†РёРµР№ srand
 using namespace std;
 class wed 
 {
 public:
-	string male_name;// фио жениха
-	string female_name;// фио невесты
+	string male_name;// С„РёРѕ Р¶РµРЅРёС…Р°
+	string female_name;// С„РёРѕ РЅРµРІРµСЃС‚С‹
 	string marrige_date;
-	int male_year;// год рождения жениха
-	int female_year;// год рождения невесты
-	/*констуктор класса*/
+	int male_year;// РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ Р¶РµРЅРёС…Р°
+	int female_year;// РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ РЅРµРІРµСЃС‚С‹
+	/*РєРѕРЅСЃС‚СѓРєС‚РѕСЂ РєР»Р°СЃСЃР°*/
 	wed(string _male_name = "None", int _male_year = 0, string _female_name = "None", \
 		int _female_year = 0, string _marrige_date = "None")
 	{
@@ -25,13 +25,13 @@ public:
 		marrige_date = _marrige_date;
 	}
 	//wed(string& s);
-	/*дружественные функции операторов сравнения*/
+	/*РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ*/
 	friend bool operator== (wed b1, wed b2);
 	friend bool operator< (wed b1, wed b2);
 	friend bool operator> (wed b1, wed b2);
 	friend bool operator<= (wed b1, wed b2);
 	friend bool operator>= (wed b1, wed b2);
 };
-/*прототипы некоых функций*/
-void generate_database(int number, string path = "database.csv");// генерациая полной базы данных
-void menu();// функция меню
+/*РїСЂРѕС‚РѕС‚РёРїС‹ РЅРµРєРѕС‹С… */
+void generate_database(int number, string path = "database.csv");// РіРµРЅРµСЂР°С†РёР°СЏ РїРѕР»РЅРѕР№ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+void menu();// С„СѓРЅРєС†РёСЏ РјРµРЅСЋ
