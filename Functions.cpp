@@ -1,5 +1,5 @@
-#include "Header.h"// подключение заголовочного файла
-/*Перегрузка операторов сравнения*/
+#include "Header.h"// РїРѕРґРєР»СЋС‡РµРЅРёРµ Р·Р°РіРѕР»РѕРІРѕС‡РЅРѕРіРѕ С„Р°Р№Р»Р°
+/*РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ*/
 bool operator== (wed w1, wed w2)
 {
     return w1.male_name == w2.male_name and w1.marrige_date == w2.marrige_date;
@@ -19,27 +19,27 @@ bool operator>= (wed w1, wed w2)
 bool operator< (wed w1, wed w2)
 {
     return((w1.male_name < w2.male_name) && (stoi(w1.marrige_date) < stoi(w2.marrige_date) || \
-        (w1.marrige_date == w2.marrige_date)));// stoi переводит string в integer
+        (w1.marrige_date == w2.marrige_date)));// stoi РїРµСЂРµРІРѕРґРёС‚ string РІ integer
 }
 bool operator> (wed w1, wed w2)
 {
     return((w1.male_name > w2.male_name) && (stoi(w1.marrige_date) > stoi(w2.marrige_date) || \
-        (w1.marrige_date == w2.marrige_date)));// stoi переводит string в integer
+        (w1.marrige_date == w2.marrige_date)));// stoi РїРµСЂРµРІРѕРґРёС‚ string РІ integer
 }
-/*функция генерации полных женских имен*/
+/*С„СѓРЅРєС†РёСЏ РіРµРЅРµСЂР°С†РёРё РїРѕР»РЅС‹С… Р¶РµРЅСЃРєРёС… РёРјРµРЅ*/
 void female_names_generator(int number)
 {
-    /*генерация женских имен*/
-    ofstream name_base("female_name_base.csv");// таблица с полными женскими ФИО
-    ifstream name_1("Female_names_1.txt");// текстовый файл с женскими именами
-    ifstream name_2("Female_names_2.txt");// текстовый файл с женскими фамилиями
-    ifstream name_3("Female_names_3.txt");// текстовый файл с женскими отчествами
-    /*создание нулевых векторов (имени, фамилии и отчества) для дальнейшего их заполнения*/
-    /*Всего в файлах лежит по 100 имен, 100 фамилий и 100 отчеств*/
-    vector<string> names_1(0);// вектор со всеми именами
-    vector<string> names_2(0);// вектор со всеми фамилиями
-    vector<string> names_3(0);// вектор со всеми отчествами
-    /*Заполняем вектора*/
+    /*РіРµРЅРµСЂР°С†РёСЏ Р¶РµРЅСЃРєРёС… РёРјРµРЅ*/
+    ofstream name_base("female_name_base.csv");// С‚Р°Р±Р»РёС†Р° СЃ РїРѕР»РЅС‹РјРё Р¶РµРЅСЃРєРёРјРё Р¤РРћ
+    ifstream name_1("Female_names_1.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ Р¶РµРЅСЃРєРёРјРё РёРјРµРЅР°РјРё
+    ifstream name_2("Female_names_2.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ Р¶РµРЅСЃРєРёРјРё С„Р°РјРёР»РёСЏРјРё
+    ifstream name_3("Female_names_3.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ Р¶РµРЅСЃРєРёРјРё РѕС‚С‡РµСЃС‚РІР°РјРё
+    /*СЃРѕР·РґР°РЅРёРµ РЅСѓР»РµРІС‹С… РІРµРєС‚РѕСЂРѕРІ (РёРјРµРЅРё, С„Р°РјРёР»РёРё Рё РѕС‚С‡РµСЃС‚РІР°) РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РёС… Р·Р°РїРѕР»РЅРµРЅРёСЏ*/
+    /*Р’СЃРµРіРѕ РІ С„Р°Р№Р»Р°С… Р»РµР¶РёС‚ РїРѕ 100 РёРјРµРЅ, 100 С„Р°РјРёР»РёР№ Рё 100 РѕС‚С‡РµСЃС‚РІ*/
+    vector<string> names_1(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё РёРјРµРЅР°РјРё
+    vector<string> names_2(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё С„Р°РјРёР»РёСЏРјРё
+    vector<string> names_3(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё РѕС‚С‡РµСЃС‚РІР°РјРё
+    /*Р—Р°РїРѕР»РЅСЏРµРј РІРµРєС‚РѕСЂР°*/
     for (int i = 0; i < 100; i++)
     {
         string buf;
@@ -50,34 +50,34 @@ void female_names_generator(int number)
         name_3 >> buf;
         names_3.push_back(buf);
     }
-    /*В цикле рандомно из полученных векторов составляем фио количеством number*/
+    /*Р’ С†РёРєР»Рµ СЂР°РЅРґРѕРјРЅРѕ РёР· РїРѕР»СѓС‡РµРЅРЅС‹С… РІРµРєС‚РѕСЂРѕРІ СЃРѕСЃС‚Р°РІР»СЏРµРј С„РёРѕ РєРѕР»РёС‡РµСЃС‚РІРѕРј number*/
     for (int i = 0; i < number; i++)
     {
         name_base << names_1[rand() % 100] << ' ' << names_2[rand() % 100] \
             << ' ' << names_3[rand() % 100] << '\n';
     }
-    /*закрыеваем файлы*/
+    /*Р·Р°РєСЂС‹РµРІР°РµРј С„Р°Р№Р»С‹*/
     name_base.close();
     name_1.close();
     name_2.close();
     name_3.close();
 }
-/*заполнение базы данных*/
+/*Р·Р°РїРѕР»РЅРµРЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…*/
 void generate_database(int number, string path)
 {
-    /*формируем и сразу записываем полные мужские имена в базу данных,
-    фомирование происходит также, как и для женских имен*/
-    ofstream database(path);// наша база данных
-    ifstream name_1("Male_names_1.txt");// текстовый файл с мужскими именами
-    ifstream name_2("Male_names_2.txt");// текстовый файл с мужскими фамилиями
-    ifstream name_3("Male_names_3.txt");// текстовый файл с мужскими отчествами
-    ifstream female_names("female_name_base.csv");// открыли таблицу с полными женскими именами
-    /*создание нулевых векторов (имени, фамилии и отчества) для дальнейшего их заполнения*/
-    /*Всего в файлах лежит по 100 имен, 100 фамилий и 100 отчеств*/
-    vector<string> names_1(0);// вектор со всеми именами
-    vector<string> names_2(0);// вектор со всеми фамилиями
-    vector<string> names_3(0);// вектор со всеми отчествами
-    /*Заполняем вектора*/
+    /*С„РѕСЂРјРёСЂСѓРµРј Рё СЃСЂР°Р·Сѓ Р·Р°РїРёСЃС‹РІР°РµРј РїРѕР»РЅС‹Рµ РјСѓР¶СЃРєРёРµ РёРјРµРЅР° РІ Р±Р°Р·Сѓ РґР°РЅРЅС‹С…,
+    С„РѕРјРёСЂРѕРІР°РЅРёРµ РїСЂРѕРёСЃС…РѕРґРёС‚ С‚Р°РєР¶Рµ, РєР°Рє Рё РґР»СЏ Р¶РµРЅСЃРєРёС… РёРјРµРЅ*/
+    ofstream database(path);// РЅР°С€Р° Р±Р°Р·Р° РґР°РЅРЅС‹С…
+    ifstream name_1("Male_names_1.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ РјСѓР¶СЃРєРёРјРё РёРјРµРЅР°РјРё
+    ifstream name_2("Male_names_2.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ РјСѓР¶СЃРєРёРјРё С„Р°РјРёР»РёСЏРјРё
+    ifstream name_3("Male_names_3.txt");// С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» СЃ РјСѓР¶СЃРєРёРјРё РѕС‚С‡РµСЃС‚РІР°РјРё
+    ifstream female_names("female_name_base.csv");// РѕС‚РєСЂС‹Р»Рё С‚Р°Р±Р»РёС†Сѓ СЃ РїРѕР»РЅС‹РјРё Р¶РµРЅСЃРєРёРјРё РёРјРµРЅР°РјРё
+    /*СЃРѕР·РґР°РЅРёРµ РЅСѓР»РµРІС‹С… РІРµРєС‚РѕСЂРѕРІ (РёРјРµРЅРё, С„Р°РјРёР»РёРё Рё РѕС‚С‡РµСЃС‚РІР°) РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РёС… Р·Р°РїРѕР»РЅРµРЅРёСЏ*/
+    /*Р’СЃРµРіРѕ РІ С„Р°Р№Р»Р°С… Р»РµР¶РёС‚ РїРѕ 100 РёРјРµРЅ, 100 С„Р°РјРёР»РёР№ Рё 100 РѕС‚С‡РµСЃС‚РІ*/
+    vector<string> names_1(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё РёРјРµРЅР°РјРё
+    vector<string> names_2(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё С„Р°РјРёР»РёСЏРјРё
+    vector<string> names_3(0);// РІРµРєС‚РѕСЂ СЃРѕ РІСЃРµРјРё РѕС‚С‡РµСЃС‚РІР°РјРё
+    /*Р—Р°РїРѕР»РЅСЏРµРј РІРµРєС‚РѕСЂР°*/
     for (int i = 0; i < 100; i++)
     {
         string buf;
@@ -88,13 +88,13 @@ void generate_database(int number, string path)
         name_3 >> buf;
         names_3.push_back(buf);
     }
-    /*генеиуем рандомную дату бракосочестания*/
+    /*РіРµРЅРµРёСѓРµРј СЂР°РЅРґРѕРјРЅСѓСЋ РґР°С‚Сѓ Р±СЂР°РєРѕСЃРѕС‡РµСЃС‚Р°РЅРёСЏ*/
     int month = 1 + (rand() % 12);
     int days = 31;
     int year = 2006 + (rand() % 13);
     if (month == 4 || month == 6 || month == 9 || month == 11)
         days = 30;
-    else if (month == 2) //провека года на високосность, чтобы сделать в феврале 28 дней
+    else if (month == 2) //РїСЂРѕРІРµРєР° РіРѕРґР° РЅР° РІРёСЃРѕРєРѕСЃРЅРѕСЃС‚СЊ, С‡С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ РІ С„РµРІСЂР°Р»Рµ 28 РґРЅРµР№
     {
         if (year % 4 != 0)
             days = 28;
@@ -104,135 +104,135 @@ void generate_database(int number, string path)
             days = 29;
         else days = 28;
     }
-    /*формируем и записываем окончательную строку (ФИО жениха, год рождения жениха,
-    ФИО невесты, год рождения невесты, дата бакосочетания)*/
+    /*С„РѕСЂРјРёСЂСѓРµРј Рё Р·Р°РїРёСЃС‹РІР°РµРј РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅСѓСЋ СЃС‚СЂРѕРєСѓ (Р¤РРћ Р¶РµРЅРёС…Р°, РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ Р¶РµРЅРёС…Р°,
+    Р¤РРћ РЅРµРІРµСЃС‚С‹, РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ РЅРµРІРµСЃС‚С‹, РґР°С‚Р° Р±Р°РєРѕСЃРѕС‡РµС‚Р°РЅРёСЏ)*/
 
     for (int i = 0; i < number; i++)
     {
-        string buf;// сюда будем записывать считанное уже сфомиованное полное имя невесты
-        getline(female_names, buf);// считали полное женское имя
+        string buf;// СЃСЋРґР° Р±СѓРґРµРј Р·Р°РїРёСЃС‹РІР°С‚СЊ СЃС‡РёС‚Р°РЅРЅРѕРµ СѓР¶Рµ СЃС„РѕРјРёРѕРІР°РЅРЅРѕРµ РїРѕР»РЅРѕРµ РёРјСЏ РЅРµРІРµСЃС‚С‹
+        getline(female_names, buf);// СЃС‡РёС‚Р°Р»Рё РїРѕР»РЅРѕРµ Р¶РµРЅСЃРєРѕРµ РёРјСЏ
         database << names_1[rand() % 100] + ' ' + names_2[rand() % 100] \
             + ' ' + names_3[rand() % 100] + ';' + to_string(1970 + rand() % 30) + ';' + buf + ';' \
             + to_string(1970 + rand() % 30) + ';' + to_string(1 + rand() % days) + '.' + \
             to_string(month) + '.' + to_string(year) + '\n';
     }
-    /*закрыеваем файлы*/
+    /*Р·Р°РєСЂС‹РµРІР°РµРј С„Р°Р№Р»С‹*/
     database.close();
     name_1.close();
     name_2.close();
     name_3.close();
     female_names.close();
 }
-/*функция извлечения выгрузки базы данных в вектор*/
+/*С„СѓРЅРєС†РёСЏ РёР·РІР»РµС‡РµРЅРёСЏ РІС‹РіСЂСѓР·РєРё Р±Р°Р·С‹ РґР°РЅРЅС‹С… РІ РІРµРєС‚РѕСЂ*/
 vector<wed> make_vector(string path)
 {
     string buf;
-    ifstream data(path);// откываем файл с базой данных
-    vector<wed> record(0);// создаем пустой вектор
-    while (getline(data, buf, ';'))// считываем из файла по разделителю пока не закончится файл 
+    ifstream data(path);// РѕС‚РєС‹РІР°РµРј С„Р°Р№Р» СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
+    vector<wed> record(0);// СЃРѕР·РґР°РµРј РїСѓСЃС‚РѕР№ РІРµРєС‚РѕСЂ
+    while (getline(data, buf, ';'))// СЃС‡РёС‚С‹РІР°РµРј РёР· С„Р°Р№Р»Р° РїРѕ СЂР°Р·РґРµР»РёС‚РµР»СЋ РїРѕРєР° РЅРµ Р·Р°РєРѕРЅС‡РёС‚СЃСЏ С„Р°Р№Р» 
     {
         int groom_birth, bride_birth;
         string groom_name, bride_name, wed_date;
         groom_name = buf;
         getline(data, buf, ';');
-        groom_birth = stoi(buf);// переводим int в string
+        groom_birth = stoi(buf);// РїРµСЂРµРІРѕРґРёРј int РІ string
         getline(data, buf, ';');
         bride_name = buf;
         getline(data, buf, ';');
-        bride_birth = stoi(buf);// переводим int в string
+        bride_birth = stoi(buf);// РїРµСЂРµРІРѕРґРёРј int РІ string
         getline(data, buf);
         wed_date = buf;
         record.push_back(wed(groom_name, groom_birth, bride_name, bride_birth, wed_date));
     }
-    data.close();// закываем файл
+    data.close();// Р·Р°РєС‹РІР°РµРј С„Р°Р№Р»
     return record;
 }
-/*функция сотировки выбором*/
+/*С„СѓРЅРєС†РёСЏ СЃРѕС‚РёСЂРѕРІРєРё РІС‹Р±РѕСЂРѕРј*/
 void selection_sorting(vector<wed>& num)
 {
     int size = num.size();
-    wed temp;// буфеная переменная для 
-    int min; // индекс минимального элемента
+    wed temp;// Р±СѓС„РµРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ 
+    int min; // РёРЅРґРµРєСЃ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     for (int i = 0; i < size; i++)
     {
-        min = i; //индекс текущего элемента принимаем за минимальный
-        /*поиск минимального элемента начиная с i + 1 - ого места*/
-        for (int j = i + 1; j < size; j++)  // поход по всем элементам, начиная с i + 1 - ого
+        min = i; //РёРЅРґРµРєСЃ С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РїСЂРёРЅРёРјР°РµРј Р·Р° РјРёРЅРёРјР°Р»СЊРЅС‹Р№
+        /*РїРѕРёСЃРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅР°С‡РёРЅР°СЏ СЃ i + 1 - РѕРіРѕ РјРµСЃС‚Р°*/
+        for (int j = i + 1; j < size; j++)  // РїРѕС…РѕРґ РїРѕ РІСЃРµРј СЌР»РµРјРµРЅС‚Р°Рј, РЅР°С‡РёРЅР°СЏ СЃ i + 1 - РѕРіРѕ
         {
-            if (num[j] < num[min]) // если текущий элемент меньше минимального
-                min = j;// запоминаем его индекс в min
+            if (num[j] < num[min]) // РµСЃР»Рё С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ РјРµРЅСЊС€Рµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ
+                min = j;// Р·Р°РїРѕРјРёРЅР°РµРј РµРіРѕ РёРЅРґРµРєСЃ РІ min
         }
-        temp = num[i];// меняем местами i-ый элемент и минимальный через буфеную переменную
+        temp = num[i];// РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё i-С‹Р№ СЌР»РµРјРµРЅС‚ Рё РјРёРЅРёРјР°Р»СЊРЅС‹Р№ С‡РµСЂРµР· Р±СѓС„РµРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
         num[i] = num[min];
         num[min] = temp;
     }
 }
-/*функция шейкер-сортровки*/
+/*С„СѓРЅРєС†РёСЏ С€РµР№РєРµСЂ-СЃРѕСЂС‚СЂРѕРІРєРё*/
 void shaker_sorting(vector<wed>& num)
 {
-    int left = 0;// левая граница сортиуемой части массива
+    int left = 0;// Р»РµРІР°СЏ РіСЂР°РЅРёС†Р° СЃРѕСЂС‚РёСѓРµРјРѕР№ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
     int count = num.size();
-    int right = count - 1;// правая граница сортиуемой части массива
-    /*идем с обоих сторон справа и слева пока данные границы не сомкнуться и пока есть перемещения*/
+    int right = count - 1;// РїСЂР°РІР°СЏ РіСЂР°РЅРёС†Р° СЃРѕСЂС‚РёСѓРµРјРѕР№ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
+    /*РёРґРµРј СЃ РѕР±РѕРёС… СЃС‚РѕСЂРѕРЅ СЃРїСЂР°РІР° Рё СЃР»РµРІР° РїРѕРєР° РґР°РЅРЅС‹Рµ РіСЂР°РЅРёС†С‹ РЅРµ СЃРѕРјРєРЅСѓС‚СЊСЃСЏ Рё РїРѕРєР° РµСЃС‚СЊ РїРµСЂРµРјРµС‰РµРЅРёСЏ*/
     while ((left < right))
     {
-        for (int i = left; i < right; i++)// проход слева на право
+        for (int i = left; i < right; i++)// РїСЂРѕС…РѕРґ СЃР»РµРІР° РЅР° РїСЂР°РІРѕ
         {
-            if (num[i] > num[i + 1])// если следующий меньше текущего, то меняем местами
+            if (num[i] > num[i + 1])// РµСЃР»Рё СЃР»РµРґСѓСЋС‰РёР№ РјРµРЅСЊС€Рµ С‚РµРєСѓС‰РµРіРѕ, С‚Рѕ РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
             {
-                wed t = num[i];// создаем времнную переменную
+                wed t = num[i];// СЃРѕР·РґР°РµРј РІСЂРµРјРЅРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
                 num[i] = num[i + 1];
                 num[i + 1] = t;
             }
         }
-        right--;// сдвигаем правую границу на предыдущий элемент
-        for (int i = right; i > left; i--)// проход справа налево
+        right--;// СЃРґРІРёРіР°РµРј РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚
+        for (int i = right; i > left; i--)// РїСЂРѕС…РѕРґ СЃРїСЂР°РІР° РЅР°Р»РµРІРѕ
         {
-            if (num[i - 1] > num[i]) // если предыдущий больше текущего, то меняем местами
+            if (num[i - 1] > num[i]) // РµСЃР»Рё РїСЂРµРґС‹РґСѓС‰РёР№ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ, С‚Рѕ РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
             {
-                wed t = num[i];// создаем времнную переменную
+                wed t = num[i];// СЃРѕР·РґР°РµРј РІСЂРµРјРЅРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
                 num[i] = num[i - 1];
                 num[i - 1] = t;
             }
         }
-        left++;// сдвигаем левую границу на следующий элемент
+        left++;// СЃРґРІРёРіР°РµРј Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚
     }
 }
-/*сама сотировка базы данных нужным способом*/
+/*СЃР°РјР° СЃРѕС‚РёСЂРѕРІРєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С… РЅСѓР¶РЅС‹Рј СЃРїРѕСЃРѕР±РѕРј*/
 void sorting(void(*function)(vector<wed>&), string path_old, string path_new)
 {
-    vector<wed> a = make_vector(path_old);//записываем базу данных в вектор
-    function(a);// сотируем данные
+    vector<wed> a = make_vector(path_old);//Р·Р°РїРёСЃС‹РІР°РµРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РІ РІРµРєС‚РѕСЂ
+    function(a);// СЃРѕС‚РёСЂСѓРµРј РґР°РЅРЅС‹Рµ
     ofstream data;
-    data.open(path_new);// открываем базу данных для перезаписи
+    data.open(path_new);// РѕС‚РєСЂС‹РІР°РµРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РґР»СЏ РїРµСЂРµР·Р°РїРёСЃРё
     for (int i = 0; i < a.size(); i++)
     {
         data << a[i].male_name + ";" + to_string(a[i].male_year) + ";" + a[i].female_name \
             + ";" + to_string(a[i].female_year) + ";" + a[i].marrige_date + "\n";
     }
-    data.close();// закрываем файл
+    data.close();// Р·Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
 }
-/*сортировка уже отсортированной базы данных*/
+/*СЃРѕСЂС‚РёСЂРѕРІРєР° СѓР¶Рµ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕР№ Р±Р°Р·С‹ РґР°РЅРЅС‹С…*/
 void time_of_sorting_unsorted_data(int n, void (*function)(vector<wed>&))
 {
-    unsigned int start_time = clock();// засекаем время выполнения сортировки
-    sorting(function, "database.csv", "database(sorted).csv"); //сортировка данных
+    unsigned int start_time = clock();// Р·Р°СЃРµРєР°РµРј РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
+    sorting(function, "database.csv", "database(sorted).csv"); //СЃРѕСЂС‚РёСЂРѕРІРєР° РґР°РЅРЅС‹С…
     unsigned int end_time = clock();
-    cout << " время сортировки " << n << " элементов: " << (end_time - start_time) * 1.0 / 1000 \
+    cout << " РІСЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё " << n << " СЌР»РµРјРµРЅС‚РѕРІ: " << (end_time - start_time) * 1.0 / 1000 \
         << ' c' << endl;
 }
-/*сортировка неотсортированных данных*/
+/*СЃРѕСЂС‚РёСЂРѕРІРєР° РЅРµРѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… РґР°РЅРЅС‹С…*/
 void time_of_sorting_already_sorted_data(int n, void (*function)(vector<wed>&))
 {
-    unsigned int start_time = clock();// засекаем время выполнения сортировки
-    sorting(function, "database(sorted).csv", "database.csv"); //сортировка данных
+    unsigned int start_time = clock();// Р·Р°СЃРµРєР°РµРј РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
+    sorting(function, "database(sorted).csv", "database.csv"); //СЃРѕСЂС‚РёСЂРѕРІРєР° РґР°РЅРЅС‹С…
     unsigned int end_time = clock();
-    cout << " время сортировки " << n << " элементов: " << (end_time - start_time) * 1.0 / 1000 \
+    cout << " РІСЂРµРјСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё " << n << " СЌР»РµРјРµРЅС‚РѕРІ: " << (end_time - start_time) * 1.0 / 1000 \
         << ' c' << endl;
 }
 void menu()
 {
-    /*пользователь говоит сколько элементов отсотировать*/
+    /*РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РіРѕРІРѕРёС‚ СЃРєРѕР»СЊРєРѕ СЌР»РµРјРµРЅС‚РѕРІ РѕС‚СЃРѕС‚РёСЂРѕРІР°С‚СЊ*/
     int b = 0;
     cout << "Press 1 to sort 100 items" << endl;
     cout << "Press 2 to sort 200 items" << endl;
@@ -241,15 +241,15 @@ void menu()
     cout << "Press 5 to sort 800 items" << endl;
     cout << "Press 6 to sort 1000 items" << endl;
     cout << "Input the number: ";
-    while (b < 1 || b > 6) // пока не ввели корректное значение повторяем ввод
+    while (b < 1 || b > 6) // РїРѕРєР° РЅРµ РІРІРµР»Рё РєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕРІС‚РѕСЂСЏРµРј РІРІРѕРґ
     {
         cin >> b;
         if ((b < 1) || (b > 6))
         {
             cout << "WRONG INPUT!" << endl;
             cout << "Enter a number from 1 to 6" << endl;
-            cin.clear();// очищаем поток ввода, если был введен символ типа, отличного от int 
-            /*сдвигаемся максимально вправо, чтобы точно дойти до конца строки и перейти на новую*/
+            cin.clear();// РѕС‡РёС‰Р°РµРј РїРѕС‚РѕРє РІРІРѕРґР°, РµСЃР»Рё Р±С‹Р» РІРІРµРґРµРЅ СЃРёРјРІРѕР» С‚РёРїР°, РѕС‚Р»РёС‡РЅРѕРіРѕ РѕС‚ int 
+            /*СЃРґРІРёРіР°РµРјСЃСЏ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РІРїСЂР°РІРѕ, С‡С‚РѕР±С‹ С‚РѕС‡РЅРѕ РґРѕР№С‚Рё РґРѕ РєРѕРЅС†Р° СЃС‚СЂРѕРєРё Рё РїРµСЂРµР№С‚Рё РЅР° РЅРѕРІСѓСЋ*/
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
@@ -260,12 +260,12 @@ void menu()
         
         female_names_generator(100);
         generate_database(100);
-        cout << "Неотсотированные данные: " << endl;
+        cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_unsorted_data(100, shaker_sorting);
         cout << "Selection_sort:";
         time_of_sorting_unsorted_data(100, selection_sorting);
-        cout << "Заранее отсотированные данные: " << endl;
+        cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_already_sorted_data(100, shaker_sorting);
         cout << "Selection_sort:";
@@ -276,12 +276,12 @@ void menu()
     {
         female_names_generator(200);
         generate_database(200);
-        cout << "Неотсотированные данные: " << endl;
+        cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_unsorted_data(200, shaker_sorting);
         cout << "Selection_sort:";
         time_of_sorting_unsorted_data(200, selection_sorting);
-        cout << "Заранее отсотированные данные: " << endl;
+        cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_already_sorted_data(200, shaker_sorting);
         cout << "Selection_sort:";
@@ -292,12 +292,12 @@ void menu()
     {
         female_names_generator(400);
         generate_database(400);
-        cout << "Неотсотированные данные: " << endl;
+        cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_unsorted_data(400, shaker_sorting);
         cout << "Selection_sort:";
         time_of_sorting_unsorted_data(400, selection_sorting);
-        cout << "Заранее отсотированные данные: " << endl;
+        cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_already_sorted_data(400, shaker_sorting);
         cout << "Selection_sort:";
@@ -309,12 +309,12 @@ void menu()
         
         female_names_generator(600);
         generate_database(600);
-        cout << "Неотсотированные данные: " << endl;
+        cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_unsorted_data(600, shaker_sorting);
         cout << "Selection_sort:";
         time_of_sorting_unsorted_data(600, selection_sorting);
-        cout << "Заранее отсотированные данные: " << endl;
+        cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_already_sorted_data(600, shaker_sorting);
         cout << "Selection_sort:";
@@ -325,12 +325,12 @@ void menu()
     {
         female_names_generator(800);
         generate_database(800);
-        cout << "Неотсотированные данные: " << endl;
+        cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_unsorted_data(800, shaker_sorting);
         cout << "Selection_sort:";
         time_of_sorting_unsorted_data(800, selection_sorting);
-        cout << "Заранее отсотированные данные: " << endl;
+        cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
         cout << "Shaker_sort:";
         time_of_sorting_already_sorted_data(800, shaker_sorting);
         cout << "Selection_sort:";
@@ -342,12 +342,12 @@ void menu()
         for (int i = 0; i < 5; i++) {
             female_names_generator(1000);
             generate_database(1000);
-            cout << "Неотсотированные данные: " << endl;
+            cout << "РќРµРѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ: " << endl;
             cout << "Shaker_sort:";
             time_of_sorting_unsorted_data(1000, shaker_sorting);
             cout << "Selection_sort:";
             time_of_sorting_unsorted_data(1000, selection_sorting);
-            cout << "Заранее отсотированные данные:" << endl;
+            cout << "Р—Р°СЂР°РЅРµРµ РѕС‚СЃРѕС‚РёСЂРѕРІР°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ:" << endl;
             cout << "Shaker_sort:";
             time_of_sorting_already_sorted_data(1000, shaker_sorting);
             cout << "Selection_sort:";
