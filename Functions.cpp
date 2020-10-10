@@ -18,13 +18,13 @@ bool operator>= (wed w1, wed w2)
 }
 bool operator< (wed w1, wed w2)
 {
-    return((w1.male_name < w2.male_name) && (stoi(w1.marrige_date) < stoi(w2.marrige_date) || \
-        (w1.marrige_date == w2.marrige_date)));// stoi переводит string в integer
+    return(stoi(w1.marrige_date) < stoi(w2.marrige_date)) || ((w1.marrige_date == w2.marrige_date) && \
+        (w1.male_name < w2.male_name));// stoi переводит string в integer
 }
 bool operator> (wed w1, wed w2)
 {
-    return((w1.male_name > w2.male_name) && (stoi(w1.marrige_date) > stoi(w2.marrige_date) || \
-        (w1.marrige_date == w2.marrige_date)));// stoi переводит string в integer
+    return(stoi(w1.marrige_date) > stoi(w2.marrige_date))||((w1.marrige_date == w2.marrige_date)&&\
+        (w1.male_name > w2.male_name));// stoi переводит string в integer
 }
 /*функция генерации полных женских имен*/
 void female_names_generator(int number)
@@ -77,7 +77,7 @@ void generate_database(int number, string path)
     vector<string> names_1(0);// вектор со всеми именами
     vector<string> names_2(0);// вектор со всеми фамилиями
     vector<string> names_3(0);// вектор со всеми отчествами
-    /*Заполняем вектора*/
+    /*Заполняем векторы*/
     for (int i = 0; i < 100; i++)
     {
         string buf;
@@ -106,7 +106,6 @@ void generate_database(int number, string path)
     }
     /*формируем и записываем окончательную строку (ФИО жениха, год рождения жениха,
     ФИО невесты, год рождения невесты, дата бакосочетания)*/
-
     for (int i = 0; i < number; i++)
     {
         string buf;// сюда будем записывать считанное уже сфомиованное полное имя невесты
@@ -159,7 +158,7 @@ void selection_sorting(vector<wed>& num)
         /*поиск минимального элемента начиная с i + 1 - ого места*/
         for (int j = i + 1; j < size; j++)  // поход по всем элементам, начиная с i + 1 - ого
         {
-            if (num[j] < num[min]) // если текущий элемент меньше минимального
+            if (num[j] < num[min])// если текущий элемент меньше минимального
                 min = j;// запоминаем его индекс в min
         }
         temp = num[i];// меняем местами i-ый элемент и минимальный через буфеную переменную
@@ -170,19 +169,22 @@ void selection_sorting(vector<wed>& num)
 /*функция шейкер-сортровки*/
 void shaker_sorting(vector<wed>& num)
 {
-    int left = 0;// левая граница сортиуемой части массива
+    int left = 0, flag = 1;// левая граница сортиуемой части массива
     int count = num.size();
     int right = count - 1;// правая граница сортиуемой части массива
     /*идем с обоих сторон справа и слева пока данные границы не сомкнуться и пока есть перемещения*/
-    while ((left < right))
+    while ((left < right) && (flag > 0))
     {
+        flag = 0;
         for (int i = left; i < right; i++)// проход слева на право
         {
+            
             if (num[i] > num[i + 1])// если следующий меньше текущего, то меняем местами
             {
                 wed t = num[i];// создаем времнную переменную
                 num[i] = num[i + 1];
                 num[i + 1] = t;
+                flag = 1;
             }
         }
         right--;// сдвигаем правую границу на предыдущий элемент
@@ -193,6 +195,7 @@ void shaker_sorting(vector<wed>& num)
                 wed t = num[i];// создаем времнную переменную
                 num[i] = num[i - 1];
                 num[i - 1] = t;
+                flag = 1;
             }
         }
         left++;// сдвигаем левую границу на следующий элемент
@@ -225,7 +228,7 @@ void time_of_sorting_unsorted_data(int n, void (*function)(vector<wed>&))
 void time_of_sorting_already_sorted_data(int n, void (*function)(vector<wed>&))
 {
     unsigned int start_time = clock();// засекаем время выполнения сортировки
-    sorting(function, "database(sorted).csv", "database.csv"); //сортировка данных
+    sorting(function, "database(sorted).csv", "database(sorted).csv"); //сортировка данных
     unsigned int end_time = clock();
     cout << " время сортировки " << n << " элементов: " << (end_time - start_time) * 1.0 / 1000 \
         << ' c' << endl;
@@ -257,7 +260,6 @@ void menu()
     {
     case 1:
     {
-        
         female_names_generator(100);
         generate_database(100);
         cout << "Неотсотированные данные: " << endl;
@@ -306,7 +308,6 @@ void menu()
     }
     case 4:
     {
-        
         female_names_generator(600);
         generate_database(600);
         cout << "Неотсотированные данные: " << endl;
@@ -339,20 +340,18 @@ void menu()
     }
     case 6:
     {
-        for (int i = 0; i < 5; i++) {
-            female_names_generator(1000);
-            generate_database(1000);
-            cout << "Неотсотированные данные: " << endl;
-            cout << "Shaker_sort:";
-            time_of_sorting_unsorted_data(1000, shaker_sorting);
-            cout << "Selection_sort:";
-            time_of_sorting_unsorted_data(1000, selection_sorting);
-            cout << "Заранее отсотированные данные:" << endl;
-            cout << "Shaker_sort:";
-            time_of_sorting_already_sorted_data(1000, shaker_sorting);
-            cout << "Selection_sort:";
-            time_of_sorting_already_sorted_data(1000, selection_sorting);
-        }
+        female_names_generator(1000);
+        generate_database(1000);
+        cout << "Неотсотированные данные: " << endl;
+        cout << "Shaker_sort:";
+        time_of_sorting_unsorted_data(1000, shaker_sorting);
+        cout << "Selection_sort:";
+        time_of_sorting_unsorted_data(1000, selection_sorting);
+        cout << "Заранее отсотированные данные:" << endl;
+        cout << "Shaker_sort:";
+        time_of_sorting_already_sorted_data(1000, shaker_sorting);
+        cout << "Selection_sort:";
+        time_of_sorting_already_sorted_data(1000, selection_sorting);
         break;
     }
     }
