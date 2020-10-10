@@ -32,6 +32,6 @@ public:
 	friend bool operator<= (wed b1, wed b2);
 	friend bool operator>= (wed b1, wed b2);
 };
-/*прототипы некоых */
+/*прототипы некоторых функций*/
 void generate_database(int number, string path = "database.csv");// генерациая полной базы данных
 void menu();// функция меню
